@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paparan Eksekutif - Bina Marga 2027</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Lexend:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Lexend', 'sans-serif']
+                    },
+                    colors: {
+                        brand: { 50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #fcfcfd; }
+        .presentation-card { @apply bg-white border border-slate-200 shadow-sm rounded-[2rem]; }
+        .stat-value { font-family: 'Lexend', sans-serif; }
+        
+        .custom-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+
+        @media print {
+            body { background-color: white !important; }
+            .no-print { display: none !important; }
+            .presentation-card { border: 1px solid #e2e8f0 !important; shadow: none !important; break-inside: avoid; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body class="text-slate-900 overflow-x-hidden">
+
+    <!-- Header Laporan -->
+    <header class="bg-brand-900 text-white shadow-xl sticky top-0 z-[1001] no-print">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="bg-white/10 p-2 rounded-xl backdrop-blur-md">
+                    <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 00-4-4H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-sm sm:text-lg tracking-tight uppercase">Paparan Ringkas</h1>
+                    <p class="text-[9px] text-brand-300 font-bold tracking-widest uppercase">Rencana Kerja Bidang Bina Marga TA 2027</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <!-- Judul Paparan -->
+        <div class="mb-16 border-l-8 border-brand-600 pl-8">
+            <h2 class="font-display font-800 text-3xl sm:text-5xl text-slate-900 tracking-tight leading-tight uppercase">
+                Justifikasi Strategis<br>
+                <span class="text-brand-600">Pembangunan Infrastruktur 2027</span>
+            </h2>
+            <p class="text-slate-500 mt-6 font-medium text-lg uppercase tracking-[0.2em]">Analisis Kebijakan dan Prioritas Anggaran</p>
+        </div>
+
+        <!-- KPI Ringkasan Data -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <!-- Pagu Total -->
+            <div class="presentation-card p-10 bg-brand-900 text-white relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 opacity-10">
+                    <svg class="w-40 h-40" fill="currentColor" viewBox="0 0 20 20"><path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.184c-.22-.071-.412-.164-.567-.267a1 1 0 10-1.11 1.664A4.472 4.472 0 009 14.092V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.908c.22.071.412.164.567.267a1 1 0 101.11-1.664A4.472 4.472 0 0011 5.908V5z" clip-rule="evenodd"></path></svg>
+                </div>
+                <p class="text-brand-300 font-bold text-xs uppercase tracking-[0.2em] mb-3">Akumulasi Investasi</p>
+                <h2 id="kpiTotalAnggaran" class="stat-value text-3xl sm:text-4xl font-800 leading-none">Rp 0</h2>
+                <p class="text-brand-400 font-medium text-[10px] mt-6 uppercase tracking-wider">Sumber Data: RKA DPA TA 2027</p>
+            </div>
+
+            <!-- Volume Paket -->
+            <div class="presentation-card p-10 bg-white">
+                <p class="text-slate-400 font-bold text-xs uppercase tracking-[0.2em] mb-3">Volume Pekerjaan</p>
+                <h2 id="kpiTotalPaket" class="stat-value text-3xl sm:text-4xl font-800 text-slate-800">0 Paket</h2>
+                <p class="text-slate-500 font-medium text-[10px] mt-6 uppercase tracking-wider">Distribusi di Seluruh Kecamatan</p>
+            </div>
+
+            <!-- Sektor Prioritas -->
+            <div class="presentation-card p-10 bg-amber-50 border-amber-200">
+                <p class="text-amber-600 font-black text-[10px] uppercase tracking-[0.2em] mb-3">Fokus Sektor Utama</p>
+                <h2 id="kpiTopSektor" class="stat-value text-base sm:text-lg font-800 text-amber-900 uppercase leading-snug">Menghitung...</h2>
+                <div class="mt-6 flex items-center gap-2">
+                    <div class="bg-amber-500 w-1 h-4 rounded-full"></div>
+                    <span class="text-[9px] font-bold text-amber-700/60 uppercase">Prioritas Alokasi Tertinggi</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Narasi Justifikasi Strategis -->
+        <div class="presentation-card p-10 sm:p-16 mb-16 bg-white border-brand-100">
+            <h3 class="font-display font-bold text-brand-900 text-2xl uppercase tracking-tight mb-8 flex items-center gap-3">
+                <span class="w-10 h-1 bg-brand-600 rounded-full"></span>
+                Justifikasi Strategis Pembangunan
+            </h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-slate-600 leading-relaxed text-base">
+                <div class="space-y-6">
+                    <p>
+                        Rencana Infrastruktur Tahun Anggaran 2027 disusun dengan pertimbangan yang matang dan berbasis kebutuhan nyata di lapangan. Setiap usulan kegiatan lahir dari evaluasi kondisi jalan dan jembatan, dampaknya terhadap aktivitas masyarakat, serta konsekuensi jika penanganannya ditunda.
+                    </p>
+                    <p>
+                        Fokus diarahkan pada ruas-ruas yang secara teknis sudah berada pada kondisi mengkhawatirkan dan memiliki peran penting bagi mobilitas warga maupun aktivitas ekonomi. Jika titik-titik kritis ini tidak segera ditangani, risikonya adalah terputusnya akses dan meningkatnya biaya perbaikan di tahun-tahun berikutnya.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <!-- Point 1 -->
+                    <div class="flex gap-5">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-black">1</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm uppercase mb-1">Integritas Struktur Jalan</h4>
+                            <p class="text-xs leading-normal">Mengembalikan kekuatan struktur perkerasan sehingga jalan kembali layak dan stabil. Berdampak langsung pada efisiensi biaya operasional kendaraan masyarakat.</p>
+                        </div>
+                    </div>
+                    <!-- Point 2 -->
+                    <div class="flex gap-5">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-black">2</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm uppercase mb-1">Keselamatan Pengguna Jalan</h4>
+                            <p class="text-xs leading-normal">Pelebaran dan penyesuaian geometri untuk mengurangi potensi kecelakaan, terutama pada ruas dengan arus kendaraan tinggi.</p>
+                        </div>
+                    </div>
+                    <!-- Point 3 -->
+                    <div class="flex gap-5">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-black">3</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm uppercase mb-1">Kelancaran Logistik Pertanian</h4>
+                            <p class="text-xs leading-normal">Fokus agar akses pertanian tetap fungsional sepanjang musim, menjamin rantai pasok komoditas unggulan tidak terhambat.</p>
+                        </div>
+                    </div>
+                    <!-- Point 4 -->
+                    <div class="flex gap-5">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-black">4</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm uppercase mb-1">Efisiensi & Keberlanjutan Anggaran</h4>
+                            <p class="text-xs leading-normal">Langkah preventif pemeliharaan rutin untuk memperpanjang umur layanan, mencegah biaya rekonstruksi total yang lebih mahal.</p>
+                        </div>
+                    </div>
+                    <!-- Point 5 -->
+                    <div class="flex gap-5">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-50 flex items-center justify-center flex-shrink-0 text-brand-600 font-black">5</div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 text-sm uppercase mb-1">Kesiapsiagaan dan Penanggulangan Bencana</h4>
+                            <p class="text-xs leading-normal">Pengadaan dan pemasangan Jembatan Bailey disiapkan sebagai langkah antisipatif terhadap kondisi darurat seperti banjir, longsor, atau kerusakan mendadak pada struktur jembatan eksisting. Infrastruktur penghubung memiliki peran vital dalam menjaga akses evakuasi, distribusi logistik, layanan kesehatan, serta pergerakan kebutuhan dasar masyarakat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafik Analisis -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="presentation-card p-10">
+                <h3 class="font-display font-bold text-slate-800 text-xs uppercase tracking-widest mb-10 text-center sm:text-left">Alokasi Anggaran Berdasarkan Jenis Pekerjaan</h3>
+                <div class="relative h-64 sm:h-96 w-full">
+                    <canvas id="chartSubKegiatan"></canvas>
+                </div>
+            </div>
+            <div class="presentation-card p-10">
+                <h3 class="font-display font-bold text-slate-800 text-xs uppercase tracking-widest mb-10 text-center">Komposisi Pagu Sektoral (%)</h3>
+                <div class="relative h-64 sm:h-96 w-full flex justify-center">
+                    <canvas id="chartProporsi"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabel Ringkasan Akhir -->
+        <div class="presentation-card p-6 sm:p-12 mb-16 overflow-hidden">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-6 mb-12 border-b border-slate-100 pb-8">
+                <div>
+                    <h3 class="font-display font-bold text-slate-900 text-2xl uppercase tracking-tight leading-none">Matriks Akumulasi Investasi</h3>
+                    <p class="text-sm text-slate-400 mt-4 font-medium italic">Rangkuman detail penyerapan anggaran per klasifikasi sub-kegiatan.</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-[9px] font-black text-slate-300 uppercase tracking-widest">Periode Laporan</p>
+                    <p class="text-xs font-bold text-slate-600" id="currentDate">-- -- ----</p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto custom-scroll">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100">
+                            <th class="px-8 py-6">Uraian Klasifikasi Sub Kegiatan</th>
+                            <th class="px-8 py-6 text-center">Volume (Unit)</th>
+                            <th class="px-8 py-6 text-right">Nilai Investasi (Rp)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableRekapBody" class="divide-y divide-slate-50 text-sm font-semibold">
+                        <!-- Content via JS -->
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-brand-900 text-white">
+                            <td class="px-8 py-10 font-800 text-base uppercase tracking-widest rounded-bl-3xl">Total Akumulasi Program 2027</td>
+                            <td id="tfootPaket" class="px-8 py-10 text-center font-800 text-xl">0</td>
+                            <td id="tfootTotal" class="px-8 py-10 text-right font-800 text-xl rounded-br-3xl italic tracking-tighter">Rp 0</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+<div class="flex flex-col items-center gap-6 py-12 no-print border-t border-slate-100">
+    <p class="text-slate-400 text-sm font-medium italic">Lihat visualisasi data pada peta dan rincian paket</p>
+    
+    <a href="Pra_RKA2027.html" class="group flex items-center gap-4 bg-brand-600 hover:bg-brand-700 text-white px-10 py-5 rounded-3xl font-black transition-all shadow-2xl shadow-brand-500/30 hover:-translate-y-1 active:scale-95 uppercase text-sm tracking-[0.2em]">
+        Buka Analisa Spasial & RKA
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+    </a>
+</div>
+        <footer class="text-center pt-8 border-t border-slate-100">
+            <p class="text-[9px] font-black text-slate-300 uppercase tracking-[0.6em]">PUPR • Bidang Bina Marga • Executive Reporting System</p>
+        </footer>
+    </main>
+
+    <!-- App Logic -->
+    <script>
+        // =========================================================================
+        // 1. DATA KOORDINAT (DIOSONGKAN - PASTE MANUAL)
+        // =========================================================================
+        const realCoordinates = [];
+
+        // =========================================================================
+        // 2. DATA RKA (SUMBER ANGGARAN)
+        // =========================================================================
+        const rawRkaData = [
+            ["Kalumpang", "Penggantian Jembatan", 5844996000, "Penggantian Jembatan Katilang Ds. Bago Tanggul"],
+            ["Padang Batung", "Penggantian Jembatan", 4276397000, "Penggantian Jembatan Ruas Jalan Mawangi - Pariangan"],
+            ["Padang Batung", "Penggantian Jembatan", 4663435000, "Penggantian Jembatan Ruas Jalan Madang - Ambutun"],
+            ["Daha Utara", "Penggantian Jembatan", 5283947000, "Penggantian Jembatan Ruas Jalan Sukaramai - Keramat"],
+            ["Kandangan", "Penggantian Jembatan", 5283947000, "Penggantian Jembatan Ruas Sungai Kupang Utara - Sp. 4 Lungau"],
+            ["Padang Batung", "Penggantian Jembatan", 5283947000, "Penggantian Jembatan Ds. Sungai Minting"],
+            ["Simpur", "Rekonstruksi Jalan", 2165142000, "Rekonstruksi Ruas Jalan Talapak Manuk - Ds. Kapuh"],
+            ["Sungai Raya", "Rekonstruksi Jalan", 2535450000, "Rekonstruksi Ruas Jalan Manggis"],
+            ["Simpur", "Rekonstruksi Jalan", 2422500000, "Rekonstruksi Ruas Jalan Tanah Habang - Ds. Simpur"],
+            ["Angkinang", "Rekonstruksi Jalan", 3665700000, "Peningkatan Struktur Ruas Jalan AMD - Ds. Lokbinuang"],
+            ["Padang Batung", "Rekonstruksi Jalan", 3665250000, "Peningkatan Struktur Ruas Jalan Kaliring - Simpang Padang Batung"],
+            ["Telaga Langsat", "Rekonstruksi Jalan", 3642250000, "Peningkatan Struktur Ruas Jalan Halunuk - Riam Tajam/Talo - Hamak Umpaya"],
+            ["Padang Batung", "Rekonstruksi Jalan", 3800400000, "Peningkatan Struktur Ruas Jalan Simpang 3 Bukuanin - Riam Talo"],
+            ["Sungai Raya", "Rekonstruksi Jalan", 2009300000, "Peningkatan Struktur Ruas Jalan Paharuangan - Asam Dua"],
+            ["Daha Selatan", "Rekonstruksi Jalan", 2453400000, "Rekonstruksi Ruas Jalan Jl. Cangkingan Herman, Jl. Kampung Kawat, dll"],
+            ["Simpur", "Rekonstruksi Jalan", 3585700000, "Rekonstruksi Ruas Jalan Halaban"],
+            ["Daha Utara", "Rekonstruksi Jalan", 4243500000, "Rekonstruksi Ruas Jalan Sungai Mandala - Murung Raya"],
+            ["Angkinang", "Rekonstruksi Jalan", 3046900000, "Rekonstruksi Ruas Jalan Anjiran Rantauan - Ds. Taniran Tengah"],
+            ["Sungai Raya", "Rekonstruksi Jalan", 2440750000, "Rekonstruksi Ruas Jalan Batang Kulur Kanan - Batang Kulur Kiri"],
+            ["Daha Barat", "Rekonstruksi Jalan", 2287500000, "Peningkatan Stuktur Ruas Jalan Siang Gantung - Desa Baru"],
+            ["Padang Batung", "Rehabilitasi Jalan", 4243500000, "Rehabilitasi Ruas Jalan Mawangi – Bukuanin – Telaga Langsat"],
+            ["Kandangan", "Rehabilitasi Jalan", 2979600000, "Rehabilitasi Ruas Jalan Jl. Aluh idut dan Jl. Teluk Mesjid"],
+            ["Sungai Raya", "Rehabilitasi Jalan", 2456820000, "Rehabilitasi Ruas Jalan Hamalau - Ganda"],
+            ["Sungai Raya", "Rehabilitasi Jalan", 3228900000, "Rehabilitasi Ruas Jalan Sp. Batang Kulur Kiri - Tatas"],
+            ["Kandangan", "Rehabilitasi Jalan", 2690500000, "Rehabilitasi Ruas Jalan Ks. Tubun"],
+            ["Sungai Raya", "Rehabilitasi Jalan", 2193500000, "Rehabilitasi Ruas Jalan Hamalau - Anjiran (Jl. Murni)"],
+            ["Telaga Langsat", "Pemeliharaan Berkala Jalan", 431663000, "Pengamanan Badan Jalan Ruas Tabihi - Telaga Langsat"],
+            ["Sungai Raya", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Sungai Raya Selatan - Sarang Halang"],
+            ["Sungai Raya", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Sarang Halang Padang - Sp. Batang Kulur"],
+            ["Sungai Raya", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Tanjungan - Sp. Sakijang"],
+            ["Kandangan", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Amawang Muka - Getek"],
+            ["Kandangan", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Teratai - Menuju Perumnas Hamalau"],
+            ["Sungai Raya", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Taal Jarau - Simpang Baru/Tampang"],
+            ["Kandangan", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Baluti - Jambu Hulu/Paku"],
+            ["Angkinang", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Mandampa - Longawang"],
+            ["Angkinang", "Pelebaran Jalan", 434750000, "Pelebaran Ruas Jalan Bamban Selatan - Pakuan"],
+            ["Sungai Raya", "Rehabilitasi Jalan", 363000000, "Pelebaran Ruas Jalan Mangunang - Ds. Sungai Raya Utara"],
+            ["Kabupaten/Umum", "Pemeliharaan Rutin", 4500000000, "Pemeliharaan Rutin Jalan"],
+            ["Kabupaten/Umum", "Pemeliharaan Rutin", 1500000000, "Pemeliharaan Rutin Jembatan"],
+            ["Kabupaten/Umum", "Rekonstruksi Jalan", 1200000000, "TMMD (Swakelola)"],
+            ["Kabupaten/Umum", "Survey Kondisi", 2500000000, "Paket Perencanaan, Survey Kondisi, dan Penyelidikan Tanah"],
+            ["Kabupaten/Umum", "Honorarium & Perjadin", 497400000, "Honorarium Peneliti, Narasumber & Perjalanan Dinas"],
+            ["Kabupaten/Umum", "Penggantian Jembatan", 7768500000, "Pengadaan Jembatan Bailey/Jembatan Darurat"],
+            ["Kabupaten/Umum", "Penggantian Jembatan", 708500000, "Pemasangan Jembatan Bailey/Jembatan Darurat"]
+        ];
+
+        let charts = {};
+        const formatIDR = (n) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(n || 0);
+
+        function initApp() {
+            Chart.register(ChartDataLabels);
+            document.getElementById('currentDate').textContent = new Date().toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' });
+            renderPresentation();
+        }
+
+        function renderPresentation() {
+            const rkaItems = rawRkaData.map(d => ({ kec: d[0], sub: d[1], pagu: d[2], nama: d[3] }));
+            const totalAnggaran = rkaItems.reduce((s, i) => s + i.pagu, 0);
+            const totalPaket = rkaItems.length;
+
+            const subBudgets = rkaItems.reduce((acc, i) => {
+                acc[i.sub] = (acc[i.sub] || 0) + i.pagu;
+                return acc;
+            }, {});
+
+            const topSektor = Object.keys(subBudgets).reduce((a, b) => subBudgets[a] > subBudgets[b] ? a : b, "N/A");
+
+            // Update Header KPI
+            document.getElementById('kpiTotalAnggaran').textContent = formatIDR(totalAnggaran);
+            document.getElementById('kpiTotalPaket').textContent = totalPaket + ' Paket';
+            document.getElementById('kpiTopSektor').textContent = topSektor;
+
+            renderCharts(subBudgets);
+            renderRecapTable(rkaItems);
+        }
+
+        function renderCharts(subBudgets) {
+            const labels = Object.keys(subBudgets).sort((a, b) => subBudgets[b] - subBudgets[a]);
+            const data = labels.map(l => subBudgets[l]);
+
+            // Bar Chart - Anggaran
+            if (charts.bar) charts.bar.destroy();
+            charts.bar = new Chart(document.getElementById('chartSubKegiatan').getContext('2d'), {
+                type: 'bar',
+                data: { labels, datasets: [{ data, backgroundColor: '#2563eb', borderRadius: 12 }] },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        datalabels: { 
+                            anchor: 'end', align: 'right', color: '#1e3a8a', 
+                            font: { weight: '800', size: 10 }, 
+                            formatter: v => (v/1e9).toFixed(1) + ' M' 
+                        }
+                    },
+                    scales: { 
+                        y: { ticks: { font: { weight: '800', size: 9 }, color: '#64748b' }, grid: { display: false } }, 
+                        x: { display: false } 
+                    }
+                }
+            });
+
+            // Pie Chart - Proporsi
+            if (charts.pie) charts.pie.destroy();
+            charts.pie = new Chart(document.getElementById('chartProporsi').getContext('2d'), {
+                type: 'doughnut',
+                data: { labels, datasets: [{ data, backgroundColor: ['#1e3a8a','#2563eb','#3b82f6','#60a5fa','#93c5fd','#dbeafe'], borderWidth: 5, borderColor: '#ffffff' }] },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15, font: { size: 9, weight: 'bold' } } },
+                        datalabels: { 
+                            color: '#fff', font: { weight: '900', size: 10 },
+                            formatter: (v, ctx) => {
+                                let sum = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                                let perc = (v * 100 / sum).toFixed(0);
+                                return perc > 5 ? perc + '%' : '';
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderRecapTable(items) {
+            const rekap = items.reduce((acc, item) => {
+                if (!acc[item.sub]) acc[item.sub] = { paket: 0, pagu: 0 };
+                acc[item.sub].paket++;
+                acc[item.sub].pagu += item.pagu;
+                return acc;
+            }, {});
+            
+            const tbody = document.getElementById('tableRekapBody');
+            tbody.innerHTML = Object.keys(rekap).sort((a, b) => rekap[b].pagu - rekap[a].pagu).map(sub => `
+                <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="px-8 py-8 text-slate-800 uppercase tracking-tighter font-800">${sub}</td>
+                    <td class="px-8 py-8 text-center font-800 text-slate-400">${rekap[sub].paket}</td>
+                    <td class="px-8 py-8 text-right font-800 text-brand-700">${formatIDR(rekap[sub].pagu)}</td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('tfootPaket').textContent = items.length;
+            document.getElementById('tfootTotal').textContent = formatIDR(items.reduce((s, i) => s + i.pagu, 0));
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
