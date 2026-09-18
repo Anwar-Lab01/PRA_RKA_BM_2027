@@ -1,0 +1,138 @@
+{
+  "workbook": "F:\\Document\\Download\\REKONSILIASI_APBDP_2026.xlsx",
+  "sheets_inspected": [
+    "REKONSILIASI_APBDP_2026",
+    "RINGKASAN",
+    "F6_STAGE",
+    "UPDATE_EXISTING",
+    "CANCEL",
+    "REPLACE"
+  ],
+  "source_main_rows": 157,
+  "action_sheet_summary": {
+    "F6_STAGE": {
+      "rows": 98,
+      "jenis": {
+        "PHYSICAL": 21,
+        "PLANNING": 73,
+        "SISA_PEMBAYARAN": 4
+      },
+      "status": {
+        "NEW_APBD_P": 98
+      },
+      "tindakan": {
+        "F6_STAGE": 98
+      }
+    },
+    "UPDATE_EXISTING": {
+      "rows": 33,
+      "jenis": {
+        "PHYSICAL": 33
+      },
+      "status": {
+        "EDIT_EXISTING": 33
+      },
+      "tindakan": {
+        "UPDATE_EXISTING": 33
+      }
+    },
+    "CANCEL": {
+      "rows": 3,
+      "jenis": {
+        "PHYSICAL": 3
+      },
+      "status": {
+        "CANCELLED": 3
+      },
+      "tindakan": {
+        "CANCEL": 3
+      }
+    },
+    "REPLACE": {
+      "rows": 1,
+      "jenis": {
+        "PLANNING": 1
+      },
+      "status": {
+        "REPLACED": 1
+      },
+      "tindakan": {
+        "REPLACE": 1
+      }
+    }
+  },
+  "main_jenis_counts": {
+    "PLANNING": 84,
+    "PHYSICAL": 59,
+    "HONOR": 8,
+    "SISA_PEMBAYARAN": 4,
+    "PERJADIN": 2
+  },
+  "main_status_counts": {
+    "KEEP": 22,
+    "NEW_APBD_P": 98,
+    "EDIT_EXISTING": 33,
+    "CANCELLED": 3,
+    "REPLACED": 1
+  },
+  "main_tindakan_counts": {
+    "NONE": 22,
+    "F6_STAGE": 98,
+    "UPDATE_EXISTING": 33,
+    "CANCEL": 3,
+    "REPLACE": 1
+  },
+  "eligible_rows": {
+    "planning": 83,
+    "physical": 56
+  },
+  "skipped_cancelled_replaced": 4,
+  "roads_loaded": 350,
+  "package_actions": {
+    "EXISTING": 102,
+    "REVIEW": 37,
+    "SKIPPED": 4
+  },
+  "road_match_statuses": {
+    "SKIPPED_NON_ROAD": 40,
+    "FUZZY_AUTO": 4,
+    "UNMATCHED": 9,
+    "EXACT": 74,
+    "REVIEW": 12,
+    "SKIPPED_CANCELLED": 4
+  },
+  "database_status": "AVAILABLE",
+  "database_reason": "",
+  "writes": {
+    "performed": false,
+    "packages": 0,
+    "links": 0,
+    "manual_links_preserved": 0
+  },
+  "verification": {
+    "cancelled_replaced_inserted": 0,
+    "duplicate_creation_check": "PENDING_EXECUTION",
+    "manual_link_check": "PENDING_EXECUTION"
+  },
+  "post_write_verification": {
+    "database_status": "AVAILABLE",
+    "package_count": 189,
+    "target_year_counts": {
+      "2027": 168,
+      "2026": 21
+    },
+    "safe_source_rows": 102,
+    "safe_source_ids_missing": [],
+    "safe_source_id_duplicates": 0,
+    "cancelled_replaced_ids_present": [],
+    "expected_auto_links": 56,
+    "actual_auto_links": 56,
+    "auto_links_missing": [],
+    "auto_links_unexpected": [],
+    "all_spatial_link_duplicate_rows": 0,
+    "manual_links_current": 61,
+    "review_rows_untouched": 37,
+    "cancelled_replaced_rows_skipped": 4,
+    "passed": true
+  }
+}

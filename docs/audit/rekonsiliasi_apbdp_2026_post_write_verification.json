@@ -1,0 +1,21 @@
+{
+  "database_status": "AVAILABLE",
+  "package_count": 189,
+  "target_year_counts": {
+    "2027": 168,
+    "2026": 21
+  },
+  "safe_source_rows": 102,
+  "safe_source_ids_missing": [],
+  "safe_source_id_duplicates": 0,
+  "cancelled_replaced_ids_present": [],
+  "expected_auto_links": 56,
+  "actual_auto_links": 56,
+  "auto_links_missing": [],
+  "auto_links_unexpected": [],
+  "all_spatial_link_duplicate_rows": 0,
+  "manual_links_current": 61,
+  "review_rows_untouched": 37,
+  "cancelled_replaced_rows_skipped": 4,
+  "passed": true
+}

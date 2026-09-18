@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { formatRupiah } from '../lib/aggregateHelpers';
-import { suggestSpatialLinksForAnggaran } from '../lib/spatialMatchHelpers';
+import {
+  getDefaultSpatialLinkType,
+  suggestSpatialLinksForAnggaran
+} from '../lib/spatialMatchHelpers';
 
 export default function CoordinateLinkPanel({ 
   selectedMapObj, 
@@ -127,7 +130,12 @@ export default function CoordinateLinkPanel({
     if (!suggestion?.roadRef || !selectedAnggaranId || isSavingLink) return;
     try {
       setIsSavingLink(true);
-      await onLinkAssign(suggestion.roadRef, suggestion.roadName, selectedAnggaranId, 'fisik');
+      await onLinkAssign(
+        suggestion.roadRef,
+        suggestion.roadName,
+        selectedAnggaranId,
+        getDefaultSpatialLinkType(selectedAnggaran)
+      );
     } catch (err) {
       console.error('[LINK_SUGGESTION_ERROR]', err);
     } finally {
