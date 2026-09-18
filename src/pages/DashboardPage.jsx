@@ -13,7 +13,6 @@ import { parseMapData } from '../lib/mapHelpers';
 import { 
   getTotalAnggaran, 
   getJumlahPaket, 
-  getUniqueKecamatan, 
   getTopSubKegiatan
 } from '../lib/aggregateHelpers';
 
@@ -600,7 +599,6 @@ export default function DashboardPage() {
   // 3. Helpers processing
   const totalAnggaran = getTotalAnggaran(dataAnggaran);
   const jumlahPaket = getJumlahPaket(dataAnggaran);
-  const jumlahKecamatan = getUniqueKecamatan(dataAnggaran);
   const topSubKegiatan = getTopSubKegiatan(dataRekap);
   const overrideByAnggaranId = kecamatanOverrides.reduce((acc, item) => {
     if (!item?.anggaran_id) return acc;
@@ -622,6 +620,12 @@ export default function DashboardPage() {
 
   const totalFisik = dataAnggaran.reduce((sum, r) => sum + (Number(r.pagu_fisik) || 0), 0);
   const totalPerencanaan = dataAnggaran.reduce((sum, r) => sum + (Number(r.pagu_perencanaan) || 0), 0);
+
+  // Satu paket dapat memiliki beberapa link ruas/jembatan. Karena itu,
+  // jumlah record link tidak sama dengan jumlah paket yang sudah terhubung.
+  const linkedPackageCount = new Set(
+    (linkedState || []).map((link) => link?.anggaranId).filter(Boolean)
+  ).size;
 
   // Karena satu paket dapat ditautkan ke banyak ruas, unlinkedItems bisa disamakan dengan semua data Anggaran
   const unlinkedItems = dataAnggaran;
@@ -794,6 +798,8 @@ export default function DashboardPage() {
           backgroundRoads={backgroundRoads}
           interactiveRoads={interactiveRoads}
           linkedState={linkedState} 
+          totalPackages={dataAnggaran.length}
+          linkedPackageCount={linkedPackageCount}
           selectedMapObj={selectedMapObj}
           setSelectedMapObj={setSelectedMapObj}
           isBridgeMarkMode={isBridgeMarkMode}

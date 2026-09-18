@@ -157,6 +157,8 @@ export default function BudgetMap({
   backgroundRoads = [], 
   interactiveRoads = [], 
   linkedState, 
+  totalPackages = 0,
+  linkedPackageCount = 0,
   selectedMapObj,
   setSelectedMapObj,
   isBridgeMarkMode = false,
@@ -204,6 +206,7 @@ export default function BudgetMap({
   const totalInteractive = interactiveRoads.length;
   const linkedCount = interactiveRoads.filter(obj => getLinksForRuas(obj).length > 0).length;
   const unlinkedCount = totalInteractive - linkedCount;
+  const totalLinkRecords = Array.isArray(linkedState) ? linkedState.length : 0;
 
   // Background style
   const bgRoadStyle = { color: '#94a3b8', weight: 3, opacity: 0.6 };
@@ -244,11 +247,13 @@ export default function BudgetMap({
     <div className="card map-card flex-col">
       <div className="flex-between" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <h3 className="card-title" style={{ margin: 0 }}>Peta Geospasial Anggaran & Linking Tool</h3>
-        <div style={{ display: 'flex', gap: 16, fontSize: 13 }}>
+        <div style={{ display: 'flex', gap: 16, fontSize: 13, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
           <div><strong>Context Background:</strong> {backgroundRoads.length} Ruas</div>
           <div style={{ color: '#0f172a' }}><strong>Ruas Interaktif:</strong> {totalInteractive}</div>
-          <div style={{ color: '#16a34a' }}><strong>Telah Tertaud:</strong> {linkedCount}</div>
-          <div style={{ color: '#2563eb' }}><strong>Belum Tertaud:</strong> {unlinkedCount}</div>
+          <div style={{ color: '#16a34a' }}><strong>Paket Terhubung:</strong> {linkedPackageCount}/{totalPackages}</div>
+          <div style={{ color: '#0f766e' }}><strong>Record Link:</strong> {totalLinkRecords}</div>
+          <div style={{ color: '#16a34a' }}><strong>Objek Peta Terhubung:</strong> {linkedCount}</div>
+          <div style={{ color: '#2563eb' }}><strong>Objek Peta Belum Terhubung:</strong> {unlinkedCount}</div>
         </div>
       </div>
       

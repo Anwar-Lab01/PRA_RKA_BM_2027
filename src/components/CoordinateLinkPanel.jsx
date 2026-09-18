@@ -147,6 +147,9 @@ export default function CoordinateLinkPanel({
   const totalLinks = Array.isArray(linkedState) ? linkedState.length : 0;
   const totalFisikLinks = Array.isArray(linkedState) ? linkedState.filter(l => l.linkType === 'fisik').length : 0;
   const totalPerencanaanLinks = Array.isArray(linkedState) ? linkedState.filter(l => l.linkType === 'perencanaan').length : 0;
+  const linkedPackageCount = new Set(
+    (linkedState || []).map((link) => link?.anggaranId).filter(Boolean)
+  ).size;
 
   return (
     <div className="card" style={{ marginTop: '24px' }}>
@@ -154,6 +157,7 @@ export default function CoordinateLinkPanel({
         <h3 className="card-title" style={{ margin: 0 }}>Sistem Penghubung Geospasial</h3>
         <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
           <span className="link-count-pill green">🔗 {totalLinks} total link</span>
+          <span className="link-count-pill gray">{linkedPackageCount} paket terhubung</span>
           {totalFisikLinks > 0 && <span className="badge badge-fisik">Fisik: {totalFisikLinks}</span>}
           {totalPerencanaanLinks > 0 && <span className="badge badge-perencanaan">Prc: {totalPerencanaanLinks}</span>}
         </div>
